@@ -16,3 +16,7 @@ $ ./build.sh
 ```
 
 To launch on Android device, run:
+
+```
+$ ./build.sh launch
+```
