@@ -15,6 +15,7 @@ echo "Cleaning..."
 rm -rf classes/
 rm -rf compiled/
 rm -rf build/
+rm -rf src/io/github/synix/helloworld/R.java
 
 echo "Compiling resources..."
 mkdir -p compiled
