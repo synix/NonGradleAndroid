@@ -1,0 +1,4 @@
+<resources>
+   <string name="app_name">NonGradleAndroid Sample</string>
+   <string name="hello_msg">Hello World!</string>
+</resources>
