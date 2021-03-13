@@ -2,14 +2,14 @@
 
 set -e
 
-BUILD_TOOLS="/Users/synix/Library/Android/sdk/build-tools/28.0.3" 
+BUILD_TOOLS="$HOME/Android/sdk/build-tools/30.0.3" 
 
 AAPT2="$BUILD_TOOLS/aapt2"
 D8="$BUILD_TOOLS/d8"
 ZIPALIGN="$BUILD_TOOLS/zipalign"
 APKSIGNER="$BUILD_TOOLS/apksigner"
 
-PLATFORM="/Users/synix/Library/Android/sdk/platforms/android-28/android.jar"
+PLATFORM="$HOME/Android/sdk/platforms/android-30/android.jar"
 
 echo "Cleaning..."
 rm -rf classes/
