@@ -2,14 +2,27 @@
 
 set -e
 
-BUILD_TOOLS="/Users/synix/Library/Android/sdk/build-tools/28.0.3" 
+GET_OS=$(uname -s)
+
+case $GET_OS in
+    "Linux")
+    BUILD_TOOLS="$HOME/Android/Sdk/build-tools/30.0.3"
+    PLATFORM="$HOME/Android/Sdk/platforms/android-30/android.jar"
+    ;;
+    "Mac")
+    BUILD_TOOLS="$HOME/Library/Android/sdk/build-tools/30.0.3"
+    PLATFORM="$HOME/Library/Android/sdk/platforms/android-30/android.jar"
+    ;;
+    *)
+    echo "No Compatible platform (Linux or Mac) found"
+    exit 1
+    ;;
+esac
 
 AAPT2="$BUILD_TOOLS/aapt2"
 D8="$BUILD_TOOLS/d8"
 ZIPALIGN="$BUILD_TOOLS/zipalign"
 APKSIGNER="$BUILD_TOOLS/apksigner"
-
-PLATFORM="/Users/synix/Library/Android/sdk/platforms/android-28/android.jar"
 
 echo "Cleaning..."
 rm -rf classes/
@@ -46,7 +59,7 @@ echo "Aligning APK..."
 $ZIPALIGN -f 4 build/unsigned_app.apk build/app.apk
 
 echo "Signing APK..."
-$APKSIGNER sign --ks release.keystore build/app.apk
+$APKSIGNER sign --ks release.jks build/app.apk 
 
 
 if [ "$1" == "launch" ]; then
