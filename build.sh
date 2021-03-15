@@ -9,13 +9,18 @@ case $GET_OS in
     BUILD_TOOLS="$HOME/Android/Sdk/build-tools/30.0.3"
     PLATFORM="$HOME/Android/Sdk/platforms/android-30/android.jar"
     ;;
-    "Mac")
+    "Darwin")
     BUILD_TOOLS="$HOME/Library/Android/sdk/build-tools/30.0.3"
     PLATFORM="$HOME/Library/Android/sdk/platforms/android-30/android.jar"
     ;;
     *)
-    echo "No Compatible platform (Linux or Mac) found"
+    if [[ -z "${ANDROID_HOME}" ]]; then
+    echo "No Compatible platform (Linux or Mac) found, Please set $ANDROID_HOME in your PATH."
     exit 1
+    else
+    BUILD_TOOLS="$ANDROID_HOME/build-tools/30.0.3"
+    PLATFORM="$ANDROID_HOME/platforms/android-30/android.jar"
+    fi
     ;;
 esac
 

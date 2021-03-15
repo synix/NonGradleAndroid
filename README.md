@@ -6,8 +6,8 @@ Demonstrate how to build Android project without Android Studio and Gradle
 
 First, prepare as below： 
 
-- Modify BUILD_TOOLS and PLATFORM in build.sh based on your Android sdk path, 
-- Add release.keystore as your KeyStore file. 
+- Install SDK Platform-Tools 30.0.3
+- Add release.jks as your KeyStore file.
 
 Then, 
 
